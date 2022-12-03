@@ -1,0 +1,10 @@
+# npm related
+node_modules
+
+# parcel related
+.parcel-cache
+dist
+
+# other
+.vscode
+tmp
