@@ -14,8 +14,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.0",
+    "@types/chroma-js": "^2.1.4",
     "parcel": "^2.8.0",
     "rimraf": "^3.0.2",
     "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "chroma-js": "^2.4.2"
   }
 }
