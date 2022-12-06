@@ -32,9 +32,9 @@ const COLOR_DEFINITIONS = [
 ]
 
 const GRAY_SCALE = [
-  [20.13, 0.08],
+  [49.99, 0.02],
   [35.01, 0.05],
-  [49.99, 0.02]
+  [20.13, 0.08]
 ]
 
 export const getChromaticColor = (

@@ -1,6 +1,22 @@
-import { getChromaticColor, getGrayScale } from './colors'
+import { State } from './types'
+import { updateColors } from './ui'
 
-const screen = document.querySelector('#screen') as HTMLDivElement
+let state: State = {
+  h: 'blue',
+  b: 'high',
+  s: 'medium'
+}
 
-screen.style.backgroundColor = getChromaticColor('red', 'medium', 'low')
-screen.style.backgroundColor = getGrayScale('low')
+updateColors(state)
+
+const main = () => {
+  registerListeners()
+}
+
+const registerListeners = () => {
+  document.querySelector('#controls')?.addEventListener('click', el => {
+    console.log(el)
+  })
+}
+
+document.addEventListener('DOMContentLoaded', main, { once: true })
