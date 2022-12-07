@@ -1,4 +1,4 @@
-import { PaletteContext } from './palette-context'
+import { PaletteContext } from './contexts/palette-context'
 import { contextManager } from '../context-manager'
 
 const main = () => {

@@ -1,5 +1,5 @@
-import { PaletteContext } from './palette-context'
-import { AdjustmentContext } from './adjustment-context'
+import { PaletteContext } from './contexts/palette-context'
+import { AdjustmentContext } from './contexts/adjustment-context'
 
 export type Hue = 'blue' | 'green' | 'red'
 export type Brightness = 'high' | 'medium' | 'low'

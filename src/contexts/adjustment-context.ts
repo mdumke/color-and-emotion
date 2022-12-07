@@ -1,7 +1,7 @@
-import { ColorState } from './types'
-import { contextManager } from '../context-manager'
+import { ColorState } from '../types'
+import { contextManager } from '../../context-manager'
 import { PaletteContext } from './palette-context'
-import { ui } from './ui'
+import { ui } from '../ui'
 
 class AdjustmentContext {
   constructor (private state: ColorState) {}
