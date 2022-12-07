@@ -7,3 +7,9 @@ export type State = {
   b: Brightness
   s: Saturation | null
 }
+
+export type PaletteState = {
+  h: Hue
+  b: Brightness
+  s: Saturation
+}

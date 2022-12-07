@@ -7,7 +7,7 @@
 body {
   font-size: 14px;
   font-family: 'Courier New', Courier, monospace;
-  background-color: #444;
+  background-color: #111;
   color: #eee;
   height: 100vh;
   width: 100vw;
@@ -16,23 +16,32 @@ body {
 
 .container {
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-end;
+}
+
+.title {
+  margin-bottom: 80px;
+  text-align: center;
+  font-size: 1.1rem;
 }
 
 .screen {
-  margin: 30px auto;
-  width: 600px;
-  height: 400px;
+  margin-bottom: 90px;
+  width: 900px;
+  height: 600px;
 }
 
 .controls {
   display: grid;
   grid-template-columns: 100px repeat(3, 1fr);
-  grid-template-rows: repeat(3, 30px);
+  grid-template-rows: repeat(3, 20px);
   row-gap: 10px;
-  column-gap: 2px;
+  column-gap: 3px;
 
-  width: 600px;
-  margin: 0 auto;
+  width: 500px;
+  align-self: flex-end;
 
   & > * {
     cursor: pointer;
