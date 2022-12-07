@@ -22,15 +22,28 @@ body {
 }
 
 .title {
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   text-align: center;
   font-size: 1.1rem;
 }
 
 .screen {
-  margin-bottom: 90px;
+  position: relative;
+  margin-bottom: 60px;
   width: 900px;
   height: 600px;
+}
+
+.start-btn {
+  position: absolute;
+  bottom: 0;
+  right: -120px;
+  text-align: center;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  width: 75px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
 .controls {

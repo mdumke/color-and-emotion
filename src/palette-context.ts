@@ -1,30 +1,23 @@
-import { PaletteState, Hue, Brightness, Saturation } from './types'
+import { ColorState } from './types'
 import { ui, updateColors } from './ui'
-
+import { AdjustmentContext } from './adjustment-context'
+import { contextManager } from '../context-manager'
 class PaletteContext {
-  state: PaletteState = { h: 'blue', b: 'high', s: 'high' }
+  constructor (private state: ColorState) {}
 
-  enter (state: PaletteState) {
-    this.state = state
+  enter () {
     this.registerListeners()
     updateColors(this.state)
+    ui.showControls()
   }
 
   exit () {
     this.removeListeners()
   }
 
-  updateState (nextState: PaletteState) {
+  updateState (nextState: ColorState) {
     this.state = { ...nextState }
     updateColors(this.state)
-  }
-
-  setBrightness (brightness: Brightness) {
-    return () => this.updateState({ ...this.state, b: brightness })
-  }
-
-  setSaturation (saturation: Saturation) {
-    return () => this.updateState({ ...this.state, s: saturation })
   }
 
   setHueBlue = () => this.updateState({ ...this.state, h: 'blue' })
@@ -37,6 +30,10 @@ class PaletteContext {
   setSaturationMedium = () => this.updateState({ ...this.state, s: 'medium' })
   setSaturationLow = () => this.updateState({ ...this.state, s: 'low' })
 
+  startTrial = () => {
+    contextManager.change(new AdjustmentContext(this.state))
+  }
+
   registerListeners () {
     ui.h1.addEventListener('click', this.setHueBlue)
     ui.h2.addEventListener('click', this.setHueGreen)
@@ -47,6 +44,7 @@ class PaletteContext {
     ui.s1.addEventListener('click', this.setSaturationHigh)
     ui.s2.addEventListener('click', this.setSaturationMedium)
     ui.s3.addEventListener('click', this.setSaturationLow)
+    ui.trialBtn.addEventListener('click', this.startTrial)
   }
 
   removeListeners () {
@@ -59,6 +57,7 @@ class PaletteContext {
     ui.s1.removeEventListener('click', this.setSaturationHigh)
     ui.s2.removeEventListener('click', this.setSaturationMedium)
     ui.s3.removeEventListener('click', this.setSaturationLow)
+    ui.trialBtn.removeEventListener('click', this.startTrial)
   }
 }
 

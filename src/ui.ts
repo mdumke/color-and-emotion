@@ -1,6 +1,7 @@
-import { State, Hue, Brightness, Saturation } from './types'
+import { ColorState, Hue, Brightness, Saturation } from './types'
 import { getChromaticColor } from './colors'
 
+const title = document.querySelector('#title') as HTMLDivElement
 const screen = document.querySelector('#screen') as HTMLDivElement
 const controls = document.querySelector('#controls') as HTMLDivElement
 
@@ -13,13 +14,30 @@ export const ui = {
   b3: controls.querySelector('#b-3') as HTMLDivElement,
   s1: controls.querySelector('#s-1') as HTMLDivElement,
   s2: controls.querySelector('#s-2') as HTMLDivElement,
-  s3: controls.querySelector('#s-3') as HTMLDivElement
+  s3: controls.querySelector('#s-3') as HTMLDivElement,
+  trialBtn: document.querySelector('#start-btn') as HTMLDivElement,
+
+  hideControls: () => {
+    title.style.opacity = '0'
+    controls.style.opacity = '0'
+    ui.trialBtn.style.display = 'none'
+  },
+
+  showControls: () => {
+    title.style.opacity = '1'
+    controls.style.opacity = '1'
+    ui.trialBtn.style.display = 'block'
+  },
+
+  setScreen: (h: Hue, b: Brightness, s: Saturation) => {
+    screen.style.backgroundColor = getChromaticColor(h, b, s)
+  }
 }
 
-export const updateColors = ({ h, b, s }: State) => {
+export const updateColors = ({ h, b, s }: ColorState) => {
   if (s === null) return
 
-  screen.style.backgroundColor = getChromaticColor(h, b, s)
+  ui.setScreen(h, b, s)
   updateHueControls(b, s)
   updateBrightnessControls(h, s)
   updateSaturationControls(h, b)
