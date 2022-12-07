@@ -10,15 +10,13 @@ class PaletteContext {
     updateColors(this.state)
   }
 
-  exit () {}
+  exit () {
+    this.removeListeners()
+  }
 
   updateState (nextState: PaletteState) {
     this.state = { ...nextState }
     updateColors(this.state)
-  }
-
-  setHue (hue: Hue) {
-    return () => this.updateState({ ...this.state, h: hue })
   }
 
   setBrightness (brightness: Brightness) {
@@ -29,18 +27,38 @@ class PaletteContext {
     return () => this.updateState({ ...this.state, s: saturation })
   }
 
+  setHueBlue = () => this.updateState({ ...this.state, h: 'blue' })
+  setHueGreen = () => this.updateState({ ...this.state, h: 'green' })
+  setHueRed = () => this.updateState({ ...this.state, h: 'red' })
+  setBrightnessHigh = () => this.updateState({ ...this.state, b: 'high' })
+  setBrightnessMedium = () => this.updateState({ ...this.state, b: 'medium' })
+  setBrightnessLow = () => this.updateState({ ...this.state, b: 'low' })
+  setSaturationHigh = () => this.updateState({ ...this.state, s: 'high' })
+  setSaturationMedium = () => this.updateState({ ...this.state, s: 'medium' })
+  setSaturationLow = () => this.updateState({ ...this.state, s: 'low' })
+
   registerListeners () {
-    ui.h1.addEventListener('click', this.setHue('blue'))
-    ui.h2.addEventListener('click', this.setHue('green'))
-    ui.h3.addEventListener('click', this.setHue('red'))
+    ui.h1.addEventListener('click', this.setHueBlue)
+    ui.h2.addEventListener('click', this.setHueGreen)
+    ui.h3.addEventListener('click', this.setHueRed)
+    ui.b1.addEventListener('click', this.setBrightnessHigh)
+    ui.b2.addEventListener('click', this.setBrightnessMedium)
+    ui.b3.addEventListener('click', this.setBrightnessLow)
+    ui.s1.addEventListener('click', this.setSaturationHigh)
+    ui.s2.addEventListener('click', this.setSaturationMedium)
+    ui.s3.addEventListener('click', this.setSaturationLow)
+  }
 
-    ui.b1.addEventListener('click', this.setBrightness('high'))
-    ui.b2.addEventListener('click', this.setBrightness('medium'))
-    ui.b3.addEventListener('click', this.setBrightness('low'))
-
-    ui.s1.addEventListener('click', this.setSaturation('high'))
-    ui.s2.addEventListener('click', this.setSaturation('medium'))
-    ui.s3.addEventListener('click', this.setSaturation('low'))
+  removeListeners () {
+    ui.h1.removeEventListener('click', this.setHueBlue)
+    ui.h2.removeEventListener('click', this.setHueGreen)
+    ui.h3.removeEventListener('click', this.setHueRed)
+    ui.b1.removeEventListener('click', this.setBrightnessHigh)
+    ui.b2.removeEventListener('click', this.setBrightnessMedium)
+    ui.b3.removeEventListener('click', this.setBrightnessLow)
+    ui.s1.removeEventListener('click', this.setSaturationHigh)
+    ui.s2.removeEventListener('click', this.setSaturationMedium)
+    ui.s3.removeEventListener('click', this.setSaturationLow)
   }
 }
 
