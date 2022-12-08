@@ -30,8 +30,25 @@ body {
 .screen {
   position: relative;
   margin-bottom: 5vh;
-  width: 50vw;
+  width: max(50vw, 900px);
   height: 60vh;
+  display: flex;
+}
+
+.manikins-arousal {
+  margin: auto;
+  height: 210px;
+  width: 777px;
+  background-image: url('../assets/manikins-arousal.png');
+  display: none;
+}
+
+.manikins-valence {
+  margin: auto;
+  height: 210px;
+  width: 777px;
+  background-image: url('../assets/manikins-valence.png');
+  display: none;
 }
 
 .start-btn {
