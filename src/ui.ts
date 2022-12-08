@@ -1,5 +1,5 @@
 import { ColorState, Hue, Brightness, Saturation } from './types'
-import { getChromaticColor } from './colors'
+import { getChromaticColor, getGrayScale } from './colors'
 
 const title = document.querySelector('#title') as HTMLDivElement
 const screen = document.querySelector('#screen') as HTMLDivElement
@@ -29,15 +29,19 @@ export const ui = {
     ui.trialBtn.style.display = 'block'
   },
 
-  setScreen: (h: Hue, b: Brightness, s: Saturation) => {
+  setScreenColor: ({ h, b, s }: ColorState) => {
     screen.style.backgroundColor = getChromaticColor(h, b, s)
+  },
+
+  setScreenGray: (b: Brightness) => {
+    screen.style.backgroundColor = getGrayScale(b)
   }
 }
 
 export const updateColors = ({ h, b, s }: ColorState) => {
   if (s === null) return
 
-  ui.setScreen(h, b, s)
+  ui.setScreenColor({ h, b, s })
   updateHueControls(b, s)
   updateBrightnessControls(h, s)
   updateSaturationControls(h, b)

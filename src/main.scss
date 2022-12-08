@@ -22,22 +22,22 @@ body {
 }
 
 .title {
-  margin-bottom: 60px;
+  margin-bottom: 5vh;
   text-align: center;
   font-size: 1.1rem;
 }
 
 .screen {
   position: relative;
-  margin-bottom: 60px;
-  width: 900px;
-  height: 600px;
+  margin-bottom: 5vh;
+  width: 50vw;
+  height: 60vh;
 }
 
 .start-btn {
   position: absolute;
   top: 0;
-  right: -120px;
+  right: calc(-75px - 2vw);
   text-align: center;
   border: 1px solid #555;
   border-radius: 2px;

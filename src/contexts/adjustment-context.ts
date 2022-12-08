@@ -1,6 +1,6 @@
 import { ColorState } from '../types'
 import { contextManager } from '../../context-manager'
-import { PaletteContext } from './palette-context'
+import { PresentationContext } from './presentation-context'
 import { ui } from '../ui'
 
 class AdjustmentContext {
@@ -8,8 +8,9 @@ class AdjustmentContext {
 
   enter () {
     ui.hideControls()
+    ui.setScreenGray('high')
     setTimeout(() => {
-      contextManager.change(new PaletteContext(this.state))
+      contextManager.change(new PresentationContext(this.state))
     }, 2000)
   }
 
