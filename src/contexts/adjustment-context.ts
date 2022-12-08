@@ -8,7 +8,7 @@ class AdjustmentContext {
 
   enter () {
     ui.hideControls()
-    ui.setScreenGray('high')
+    ui.setScreenToWhite()
     setTimeout(() => {
       contextManager.change(new PresentationContext(this.state))
     }, 2000)

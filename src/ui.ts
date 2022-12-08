@@ -4,6 +4,8 @@ import { getChromaticColor, getGrayScale } from './colors'
 const title = document.querySelector('#title') as HTMLDivElement
 const screen = document.querySelector('#screen') as HTMLDivElement
 const controls = document.querySelector('#controls') as HTMLDivElement
+const arousal = document.querySelector('#manikins-arousal') as HTMLDivElement
+const valence = document.querySelector('#manikins-valence') as HTMLDivElement
 
 export const ui = {
   h1: controls.querySelector('#h-1') as HTMLDivElement,
@@ -33,8 +35,24 @@ export const ui = {
     screen.style.backgroundColor = getChromaticColor(h, b, s)
   },
 
-  setScreenGray: (b: Brightness) => {
-    screen.style.backgroundColor = getGrayScale(b)
+  setScreenToWhite: () => {
+    screen.style.backgroundColor = 'white'
+  },
+
+  showArousal: () => {
+    arousal.classList.remove('hide')
+  },
+
+  hideArousal: () => {
+    arousal.classList.add('hide')
+  },
+
+  showValence: () => {
+    valence.classList.remove('hide')
+  },
+
+  hideValence: () => {
+    valence.classList.add('hide')
   }
 }
 

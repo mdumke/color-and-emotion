@@ -14,6 +14,10 @@ body {
   display: flex;
 }
 
+.hide {
+  display: none;
+}
+
 .container {
   margin: auto;
   display: flex;
@@ -40,7 +44,6 @@ body {
   height: 210px;
   width: 777px;
   background-image: url('../assets/manikins-arousal.png');
-  display: none;
 }
 
 .manikins-valence {
@@ -48,7 +51,6 @@ body {
   height: 210px;
   width: 777px;
   background-image: url('../assets/manikins-valence.png');
-  display: none;
 }
 
 .start-btn {

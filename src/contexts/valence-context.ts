@@ -1,19 +1,21 @@
 import { contextManager } from '../../context-manager'
-import { ArousalContext } from './arousal-context'
+import { PaletteContext } from './palette-context'
 import { ColorState } from '../types'
 import { ui } from '../ui'
 
-class PresentationContext {
+class ValenceContext {
   constructor (private state: ColorState) {}
 
   enter () {
-    ui.setScreenColor(this.state)
+    ui.showValence()
     setTimeout(() => {
-      contextManager.change(new ArousalContext(this.state))
+      contextManager.change(new PaletteContext(this.state))
     }, 2000)
   }
 
-  exit () {}
+  exit () {
+    ui.hideValence()
+  }
 }
 
-export { PresentationContext }
+export { ValenceContext }
