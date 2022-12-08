@@ -10,7 +10,7 @@ class PresentationContext {
     ui.setScreenColor(this.state)
     setTimeout(() => {
       contextManager.change(new ArousalContext(this.state))
-    }, 2000)
+    }, 1000 * 15)
   }
 
   exit () {}

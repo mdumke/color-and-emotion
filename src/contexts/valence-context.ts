@@ -8,13 +8,27 @@ class ValenceContext {
 
   enter () {
     ui.showValence()
-    setTimeout(() => {
-      contextManager.change(new PaletteContext(this.state))
-    }, 2000)
+    this.registerListener()
   }
 
   exit () {
     ui.hideValence()
+    this.removeListener()
+  }
+
+  handleKeyUp = (e: KeyboardEvent) => {
+    if (!['1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(e.key)) {
+      return
+    }
+    contextManager.change(new PaletteContext(this.state))
+  }
+
+  registerListener () {
+    document.addEventListener('keyup', this.handleKeyUp)
+  }
+
+  removeListener () {
+    document.removeEventListener('keyup', this.handleKeyUp)
   }
 }
 

@@ -11,7 +11,7 @@ class AdjustmentContext {
     ui.setScreenToWhite()
     setTimeout(() => {
       contextManager.change(new PresentationContext(this.state))
-    }, 2000)
+    }, 1000 * 10)
   }
 
   exit () {}

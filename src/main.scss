@@ -44,6 +44,12 @@ body {
   height: 210px;
   width: 777px;
   background-image: url('../assets/manikins-arousal.png');
+
+  h2 {
+    padding-top: 20px;
+    color: #444;
+    text-align: center;
+  }
 }
 
 .manikins-valence {
@@ -51,6 +57,12 @@ body {
   height: 210px;
   width: 777px;
   background-image: url('../assets/manikins-valence.png');
+
+  h2 {
+    padding-top: 20px;
+    color: #444;
+    text-align: center;
+  }
 }
 
 .start-btn {
